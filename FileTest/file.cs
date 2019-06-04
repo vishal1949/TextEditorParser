@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Runtime.CompilerServices;
 
 
 public class LineText
@@ -16,24 +18,16 @@ public class LineText
 
 public class EmployeeText
 {
-    private readonly string name;
     public string location;
 
     public int count = 0;
-    private Hashtable lineTextListHashtable = new Hashtable();
-    public EmployeeText(string name, string location, int line, string text) // this is the constructor
+    public Hashtable lineTextListHashtable = new Hashtable();
+
+    private void forMeOnly()
     {
-        this.name = name;
-        this.location = location;
-        int firstLineNum = line;
-        string firstText = text;
-        addToHashTable(firstLineNum, firstText);
+        Console.WriteLine("Private Method");
     }
 
-    public String getName()
-    {
-        return name;
-    }
 
     public void addToHashTable(int lineNumber, string text)
     {
@@ -48,4 +42,3 @@ public class EmployeeText
     }
 
 }
-

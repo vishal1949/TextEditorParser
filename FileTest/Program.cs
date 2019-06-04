@@ -20,42 +20,24 @@ namespace FileTest
             string textFile = @"C:\Users\vsandhu\Desktop\employeeReport.txt";
             string desktopPath = @"C:\Users\vsandhu\Desktop\create.txt";
             string[] lines = File.ReadAllLines(textFile);
+            object[] allTheReferences = new object[lines.Length];
             if (File.Exists(textFile)){
                 using (StreamWriter sw = File.CreateText(desktopPath))
                 {
                     Console.WriteLine("new file created!");
-                    sw.WriteLine("Vishal Created this");
                     int counter = 0;
                     foreach (string line in lines)
                     {
-                        try
+                        EmployeeText temp = new EmployeeText();
+                        if (line[0] == 'C')
                         {
-
-
-                            if (line[0] == 'C')
-                            {
-                                Console.WriteLine("HAS A C");
-                            }
-                        }
-                        catch
-                        {
-                            Console.WriteLine("Made it");
+                            
                         }
                         if (counter > 3)
                         {
-                            try
-                            {
-                                sw.WriteLine(line.Split(' ')[0] + "       ------>      " + line.Split('?')[1]);
-
-                            }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine("EXCEPTION");
-                                throw;
-                            }
+                            sw.WriteLine(line.Split(' ')[0] + "       ------>      " + line.Split('?')[1]);
+                            counter++;
                         }
-                        counter++;
-
                     }
 
                     counter = 0;
